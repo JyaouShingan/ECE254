@@ -1,0 +1,4 @@
+1. os_maxtaskrun
+2. an array of active task pointers
+3. os_idle_TCB
+4. no
