@@ -294,6 +294,11 @@ void rt_sys_init (FUNCP first_task, U32 prio_stksz, void *stk) {
   os_dly.p_dlnk  = NULL;
   os_dly.p_blnk  = NULL;
   os_dly.delta_time = 0;
+	/* Start: ECE254 Lab2 additional changes */
+	/* Set up memory waiting list: initially empty */
+	os_mem.cb_type = HCB;
+	os_mem.p_lnk   = NULL;
+	/* End:   ECE254 Lab2 additional changes */
 
   /* Fix SP and systemvariables to assume idle task is running  */
   /* Transform main program into idle task by assuming idle TCB */

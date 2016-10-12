@@ -29,6 +29,7 @@ char *state2str(unsigned char state, char *str);
 char *fp2name(void (*p)(), char *str);
 
 OS_MUT g_mut_uart;
+OS_SEM g_sem_preload;
 OS_TID g_tid = 255;
 
 int  g_counter = 0;  // a global counter
@@ -43,6 +44,8 @@ struct func_info g_task_map[NUM_FNAMES] = \
   {task2, "task2"},   \
   {init,  "init" }
 };
+
+_declare_box(user_mem, 16, 20);
 
 /* no local variables defined, use one global var */
 __task void task1(void)
@@ -66,7 +69,7 @@ __task void task2(void)
 	printf("TID\tNAME\t\tPRIO\tSTATE   \t%%STACK\n");
 	os_mut_release(g_mut_uart);
     
-	for(i = 0; i <3; i++) { // this is a lazy way of doing loop.
+	for(i = 0; i < 5; i++) { // this is a lazy way of doing loop.
 		if (os_tsk_get(i+1, &task_info) == OS_R_OK) {
 			os_mut_wait(g_mut_uart, 0xFFFF);  
 			printf("%d\t%s\t\t%d\t%s\t%d%%\n", \
@@ -93,12 +96,58 @@ __task void task2(void)
 	for(;;);
 }
 
+__task void task3(void) {
+	int count;
+	void *address;
+	
+	os_sem_wait(g_sem_preload, 0xFFFF);
+	count = 0;
+	while(1) {
+		address = os_mem_alloc(user_mem);
+		os_mut_wait(g_mut_uart, 0xFFFF);
+		printf("Task3 Require mem #%d, got address %p\n", count, address);
+		os_mut_release(g_mut_uart);
+		count++;
+	}
+}
+
+__task void task4(void) {
+	void *addrs[10];
+	int i;
+	int res;
+	
+	for(i = 0; i < 10; i++) {
+		addrs[i] = os_mem_alloc(user_mem);
+		os_mut_wait(g_mut_uart, 0xFFFF);
+		printf("Task4 Require mem #%d, got address %p\n", i, addrs[i]);
+		os_mut_release(g_mut_uart);
+	}
+	os_mut_wait(g_mut_uart, 0xFFFF);
+	printf("Task4 finished acquiring memory\n");
+	os_mut_release(g_mut_uart);
+	os_sem_send(g_sem_preload);
+	
+	os_dly_wait(0x0020);
+	os_mut_wait(g_mut_uart, 0xFFFF);
+	printf("Task4 starts release memory\n");
+	os_mut_release(g_mut_uart);
+	for(i = 0; i < 10; i++) {
+		res = os_mem_free(user_mem, addrs[i]);
+		os_mut_wait(g_mut_uart, 0xFFFF);
+		printf("Task4 releasing mem #%p, succuess: %d\n", addrs[i], res);
+		os_mut_release(g_mut_uart);
+	}
+	
+	os_tsk_delete_self();
+}
+
 /*--------------------------- init ------------------------------------*/
 /* initialize system resources and create other tasks                  */
 /*---------------------------------------------------------------------*/
 __task void init(void)
 {
 	os_mut_init(&g_mut_uart);
+	os_sem_init(&g_sem_preload, 0);
   
 	os_mut_wait(g_mut_uart, 0xFFFF);
 	printf("init: TID = %d\n", os_tsk_self());
@@ -112,6 +161,16 @@ __task void init(void)
 	g_tid = os_tsk_create(task2, 1);  /* task 2 at priority 1 */
 	os_mut_wait(g_mut_uart, 0xFFFF);
 	printf("init: created task2 with TID %d\n", g_tid);
+	os_mut_release(g_mut_uart);
+	
+	g_tid = os_tsk_create(task3, 1);  /* task 3 at priority 1 */
+	os_mut_wait(g_mut_uart, 0xFFFF);
+	printf("init: created task3 with TID %d\n", g_tid);
+	os_mut_release(g_mut_uart);
+	
+	g_tid = os_tsk_create(task4, 2);  /* task 4 at priority 2 */
+	os_mut_wait(g_mut_uart, 0xFFFF);
+	printf("init: created task4 with TID %d\n", g_tid);
 	os_mut_release(g_mut_uart);
   
 	os_tsk_delete_self();     /* task MUST delete itself before exiting */
@@ -195,6 +254,9 @@ int main(void)
   
 	/* fill the fname map with os_idle_demon entry point */
 	g_task_map[0].p = os_idle_demon;
+	
+	
+  _init_box(user_mem, sizeof(user_mem), 16);
   
 	printf("Calling os_sys_init()...\n");
 	os_sys_init(init);    /* initilize the OS and start the first task */

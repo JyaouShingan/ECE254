@@ -25,6 +25,9 @@
 struct OS_XCB  os_rdy;
 /* List head of chained delay tasks */
 struct OS_XCB  os_dly;
+/* ECE254 Lab2 additional changes */
+/* List head of chained task waiting for memory */
+struct OS_XCB  os_mem;
 
 
 /*----------------------------------------------------------------------------

@@ -422,8 +422,8 @@ ARM Macro Assembler    Page 7
               00000200 
               00000000 
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\build\
-FLASH\startup_LPC17xx.d -o.\build\FLASH\startup_LPC17xx.o -IC:\Software\Keil\AR
-M\RV31\INC -IC:\Software\Keil\ARM\CMSIS\Include -IC:\Software\Keil\ARM\Inc\NXP\
+FLASH\startup_LPC17xx.d -o.\build\FLASH\startup_LPC17xx.o -Ic:\Software\Keil\AR
+M\RV31\INC -Ic:\Software\Keil\ARM\CMSIS\Include -Ic:\Software\Keil\ARM\Inc\NXP\
 LPC17xx --list=.\build\FLASH\lst\startup_LPC17xx.lst src\startup_LPC17xx.s
 
 

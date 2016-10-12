@@ -8,4 +8,4 @@
 .\CM3_LE\rt_task_ext.o: SRC\CM\rt_Robin.h
 .\CM3_LE\rt_task_ext.o: SRC\CM\rt_HAL_CM.h
 .\CM3_LE\rt_task_ext.o: SRC\CM\rt_Task_ext.h
-.\CM3_LE\rt_task_ext.o: C:\Software\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\CM3_LE\rt_task_ext.o: c:\Software\Keil\ARM\ARMCC\bin\..\include\stdio.h

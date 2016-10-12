@@ -1,18 +1,92 @@
-<html>
-<body>
-<pre>
-<h1>µVision Build Log</h1>
-<h2>Project:</h2>
-N:\ECE254\ECE254_Git\Lab2\RTX_App\RTX_App.uvproj
-Project File Date:  09/28/2016
-
-<h2>Output:</h2>
 Build Project 'RTX_App' - Target 'Starter SIM'
-compiling RTX_Conf_CM.c...
-compiling Retarget.c...
-compiling system_LPC17xx.c...
-compiling uart_polling.c...
+compiling main_task_exp.c...
+C:\Software\Keil\ARM\RV31\INC\RTL.h(362): error:  #40: expected an identifier
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(50): error:  #65: expected a ";"
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(95): warning:  #12-D: parsing restarts here after previous syntax error
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(96): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(151): warning:  #12-D: parsing restarts here after previous syntax error
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(152): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(153): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(155): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(156): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(158): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(159): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(161): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(162): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(164): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(166): error:  #169: expected a declaration
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(206): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+Target not created
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+C:\Software\Keil\ARM\RV31\INC\RTL.h(362): error:  #40: expected an identifier
+Target not created
+Build Project 'RTX_App' - Target 'Starter SIM'
 compiling main_task_exp.c...
 linking...
-Program Size: Code=8060 RO-data=276 RW-data=148 ZI-data=8132  
+Program Size: Code=8088 RO-data=276 RW-data=148 ZI-data=8484  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=8424 RO-data=316 RW-data=148 ZI-data=8484  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=8428 RO-data=316 RW-data=148 ZI-data=8484  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=8428 RO-data=316 RW-data=148 ZI-data=8484  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(115): error:  #20: identifier "addrs" is undefined
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(116): error:  #268: declaration may not appear after executable statement in block
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(117): error:  #268: declaration may not appear after executable statement in block
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(134): error:  #20: identifier "addr" is undefined
+Target not created
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(134): error:  #20: identifier "addr" is undefined
+Target not created
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=8896 RO-data=316 RW-data=148 ZI-data=8500  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=8988 RO-data=316 RW-data=148 ZI-data=8500  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+N:\ECE254\ECE254_Git\Lab2\RTX_App\src\main_task_exp.c(150): error:  #20: identifier "g_mut_preload" is undefined
+Target not created
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=9148 RO-data=316 RW-data=156 ZI-data=8484  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=9148 RO-data=316 RW-data=156 ZI-data=8484  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=9156 RO-data=316 RW-data=156 ZI-data=8484  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+compiling main_task_exp.c...
+linking...
+Program Size: Code=9152 RO-data=316 RW-data=156 ZI-data=8484  
+".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).
+Build Project 'RTX_App' - Target 'Starter SIM'
+linking...
+Program Size: Code=9152 RO-data=316 RW-data=156 ZI-data=8484  
 ".\build\FLASH\RTX_APP.axf" - 0 Error(s), 0 Warning(s).

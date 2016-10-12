@@ -21,6 +21,8 @@
 /* Variables */
 extern struct OS_XCB os_rdy;
 extern struct OS_XCB os_dly;
+/* ECE254 Lab2 addtional changes */
+extern struct OS_XCB os_mem;
 
 /* Functions */
 extern void  rt_put_prio      (P_XCB p_CB, P_TCB p_task);
