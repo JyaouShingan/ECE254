@@ -1,0 +1,28 @@
+1. n-1
+
+2. a) It is a link pointer for ready/sem. wait list
+   b) ret_val holds the value to be returned after completion of a wait
+   c) stack holds the pointer to the task stack memory block, and tsk_task holds the current task stack pointer
+
+3. mp_tcb and mp_tsk are arrays which don't hold any content, but rather the size of these are arrays are dynamically generated, and their lengths are used to store the size of tcb and tsk structures respectively
+
+4. a) R1 to R12 and LR (link register)
+   b) The lowest 16 bits of os_stackinfo
+   c) Calculate size of stack, and access it by indexing, the first item is at the highest available memory
+   d) if task not in running state, the memory address of the last item is stored in its OS_TCB structure in the variable tsk_stack
+   e) if task is running, we can get the stack pointer through the function rt_get_PSP()
+
+5. a) using the macro _declare_box(mympool, 20, 12)
+   b) using the function _init_box(mympool, sizeof(mympool), 20)
+   c) rt_alloc_box(void *box_mem)
+   d) rt_free_box(void *box_mem, void *box)
+
+6. a) given the task and the queue, enqueue the task into priority queue, and its position is determined by its priority
+   b) get the first task from the priority queue
+
+7. a) change status on current task, get next task from queue, save content from current task, and then run the next task
+   b) put target task in running state, if target task has higher priority, switch to that task immediately, otherwise, put it into ready queue
+
+8. the wait function doesn’t need to set return value to os_r_mbx because the sender will set it through the task control block
+
+9. struct OS_XCB
