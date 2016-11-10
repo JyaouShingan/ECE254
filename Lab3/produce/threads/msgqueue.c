@@ -15,7 +15,7 @@ int msgqueue_send(msgqueue *queue, int value) {
 	if (queue->count == queue->capacity) return -3;
 	queue->count++;
 	queue->array[queue->tail] = value;
-	queue->tail = ++queue->tail % queue->capacity;
+	queue->tail = (queue->tail + 1) % queue->capacity;
 	return 0;
 }
 
@@ -25,7 +25,7 @@ int msgqueue_receive(msgqueue *queue, int *output) {
 	if (queue->count == 0) return -3;
 	queue->count--;
 	*output = queue->array[queue->head];
-	queue->head = ++queue->head % queue->capacity;
+	queue->head = (queue->head + 1) % queue->capacity;
 	return 0;
 }
 

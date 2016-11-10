@@ -1,7 +1,7 @@
 CC=gcc
-CFLAGS=-Wall -g
+CFLAGS=-Wall -g -std=c99
 LD=gcc
-LDFLAGS=-g -lrt
+LDFLAGS=-g -lrt -lm -lpthread
 
 OBJS=threads.o msgqueue.o
 
